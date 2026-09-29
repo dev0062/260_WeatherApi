@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      width: 100%;
+      max-width: 450px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+    .search-box {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+    input {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      font-size: 14px;
+    }
+    button {
+      padding: 12px 18px;
+      border: none;
+      border-radius: 8px;
+      background-color: #4facfe;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #00f2fe;
+    }
+    .result-item {
+      background: rgba(0, 0, 0, 0.2);
+      margin-bottom: 10px;
+      padding: 12px 15px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .label {
+      font-weight: 600;
+      color: #ddd;
+    }
+    .value {
+      color: #00f2fe;
+      font-weight: bold;
+    }
+    .error {
+      color: #ff6b6b;
+      text-align: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>📍 Cari Informasi Lokasi</h2>
+    <div class="search-box">
+      <input type="text" id="locationInput" placeholder="Masukkan nama lokasi/kecamatan...">
+      <button onclick="searchLocation()">Cari</button>
+    </div>
+
+    <div id="result">
+      <div class="result-item"><span class="label">Negara:</span> <span class="value" id="country">-</span></div>
+      <div class="result-item"><span class="label">Provinsi:</span> <span class="value" id="province">-</span></div>
+      <div class="result-item"><span class="label">Kecamatan / Area:</span> <span class="value" id="district">-</span></div>
+      <div class="result-item"><span class="label">Longitude:</span> <span class="value" id="longitude">-</span></div>
+      <div class="result-item"><span class="label">Latitude:</span> <span class="value" id="latitude">-</span></div>
+    </div>
+    <div id="errorMsg" class="error"></div>
+  </div>
+
+  
+    }
+  </script>
+</body>
+</html>
+</html>
