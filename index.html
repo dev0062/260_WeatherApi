@@ -103,7 +103,33 @@
     <div id="errorMsg" class="error"></div>
   </div>
 
-  
+  <script>
+    const API_KEY = 'doEv4HfDTT83nQ9Uybx1'; 
+
+    async function searchLocation() {
+      const query = document.getElementById('locationInput').value.trim();
+      const errorMsg = document.getElementById('errorMsg');
+      errorMsg.innerText = '';
+
+      if (!query) {
+        errorMsg.innerText = 'Silakan masukkan nama lokasi terlebih dahulu!';
+        return;
+      }
+
+      
+     
+          document.getElementById('country').innerText = country;
+          document.getElementById('province').innerText = province;
+          document.getElementById('district').innerText = district;
+          document.getElementById('longitude').innerText = lng;
+          document.getElementById('latitude').innerText = lat;
+        } else {
+          errorMsg.innerText = 'Lokasi tidak ditemukan.';
+        }
+      } catch (err) {
+        console.error(err);
+        errorMsg.innerText = 'Gagal mengambil data dari MapTiler API.';
+      }
     }
   </script>
 </body>
