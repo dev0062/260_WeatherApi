@@ -116,20 +116,13 @@
         return;
       }
 
+      const url = `https://api.maptiler.com/geocoding/${encodeURIComponent(query)}.json?key=${API_KEY}`;
+
       
+   
+
      
-          document.getElementById('country').innerText = country;
-          document.getElementById('province').innerText = province;
-          document.getElementById('district').innerText = district;
-          document.getElementById('longitude').innerText = lng;
-          document.getElementById('latitude').innerText = lat;
-        } else {
-          errorMsg.innerText = 'Lokasi tidak ditemukan.';
-        }
-      } catch (err) {
-        console.error(err);
-        errorMsg.innerText = 'Gagal mengambil data dari MapTiler API.';
-      }
+        
     }
   </script>
 </body>
