@@ -118,11 +118,42 @@
 
       const url = `https://api.maptiler.com/geocoding/${encodeURIComponent(query)}.json?key=${API_KEY}`;
 
-      
-   
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (data.features && data.features.length > 0) {
+          const feature = data.features[0];
+          
+  
+          const [lng, lat] = feature.center;
+          
+  
+          let country = '-';
+          let province = '-';
+          let district = feature.text || '-';
+
+          if (feature.context) {
+            feature.context.forEach(ctx => {
+              if (ctx.id.startsWith('country')) country = ctx.text;
+              if (ctx.id.startsWith('province') || ctx.id.startsWith('region')) province = ctx.text;
+              if (ctx.id.startsWith('subdistrict') || ctx.id.startsWith('locality')) district = ctx.text;
+            });
+          }
 
      
-        
+          document.getElementById('country').innerText = country;
+          document.getElementById('province').innerText = province;
+          document.getElementById('district').innerText = district;
+          document.getElementById('longitude').innerText = lng;
+          document.getElementById('latitude').innerText = lat;
+        } else {
+          errorMsg.innerText = 'Lokasi tidak ditemukan.';
+        }
+      } catch (err) {
+        console.error(err);
+        errorMsg.innerText = 'Gagal mengambil data dari MapTiler API.';
+      }
     }
   </script>
 </body>
